@@ -60,24 +60,3 @@ schedule = watch_7,10,10,"load=~/download/torrents/other/*.torrent,d.set_custom1
 #   Index 141 String: 'event.download.resumed'
 
 system.method.set_key = event.download.finished,move_complete,"delete_link=base_path,,.started ; execute=mv,-u,$d.get_base_path=,$d.get_custom1= ; d.set_directory=$d.get_custom1="
-
-#on_finished = move_complete,"execute=mv,-u,$d.get_base_path=,$d.get_custom1= ;d.set_directory=$d.get_custom1="
-
-
-
-# ;create_link=base_path,,.finished"
-
-# Create symlinks in the same directory as the download.
-system.method.set_key = event.download.opened,link1a,"create_link=base_path,,.started"
-system.method.set_key = event.download.closed,link1b,"delete_link=base_path,,.started"
-
-#on_start    = link2,"create_link=base_path,,.started"
-#on_stop     = link2,"delete_link=base_path,,.started"
-#on_finished = link2,"create_link=base_path,,.finished"
-#on_erase    = link2,"delete_link=base_path,,.finished"
-
-### PAUSED -- not working
-#system.method.set_key = event.download.paused,link5a,"delete_link=base_path,,.started ;create_link=base_path,,.paused"
-#system.method.set_key = event.download.resumed,link5b,"delete_link=base_path,,.paused ;create_link=base_path,,.started"
-
-
