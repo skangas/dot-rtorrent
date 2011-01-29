@@ -3,8 +3,8 @@
 port_range = 10000-65000
 port_random = yes
 
-directory = /home/skangas/download/bittorrent/
-session = /home/skangas/.rtorrent-session
+directory = ~/download/bittorrent/
+session = ~/.rtorrent-session
 
 # performance
 
@@ -17,7 +17,7 @@ max_uploads = 50
 upload_rate = 0
 
 encoding_list = UTF-8
-#scgi_local = /home/user/rtorrent/rpc.socket
+#scgi_local = ~/rtorrent/rpc.socket
 scgi_port = 127.0.0.1:5000
 #xmlrpc_dialect=i8
 
