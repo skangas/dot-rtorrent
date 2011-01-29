@@ -1,0 +1,83 @@
+# ~/.rtorrent.rc
+
+port_range = 10000-65000
+port_random = yes
+
+directory = /home/skangas/download/bittorrent/
+session = /home/skangas/.rtorrent-session
+
+# performance
+
+hash_read_ahead=64
+check_hash = no
+
+max_peers = 150
+max_peers_seed = 100
+max_uploads = 50
+upload_rate = 0
+
+encoding_list = UTF-8
+#scgi_local = /home/user/rtorrent/rpc.socket
+scgi_port = 127.0.0.1:5000
+#xmlrpc_dialect=i8
+
+# Encryption options, set to none (default) or any combination of the following:
+# allow_incoming, try_outgoing, require, require_RC4, enable_retry, prefer_plaintext
+#
+# The example value allows incoming encrypted connections, starts unencrypted
+# outgoing connections but retries with encryption if they fail, preferring
+# plaintext to RC4 encryption after the encrypted handshake
+#encryption = allow_incoming,enable_retry,prefer_plaintext
+encryption = allow_incoming,try_outgoing,enable_retry
+
+# Each watch directory adds torrents with the final destination stored
+# in the "custom1" string of the download. You can check this string with
+# ctrl-X then "print=$d.get_custom1=" in the client.
+
+schedule = watch_1,10,10,"load=~/download/torrents/*.torrent,d.set_custom1=~/download/"
+schedule = watch_2,10,10,"load=~/download/torrents/film/*.torrent,d.set_custom1=~/Film/"
+schedule = watch_3,10,10,"load=~/download/torrents/music/*.torrent,d.set_custom1=~/music/incoming/"
+schedule = watch_4,10,10,"load=~/download/torrents/tv/*.torrent,d.set_custom1=~/Film/TV/"
+schedule = watch_5,10,10,"load=~/download/torrents/warez/*.torrent,d.set_custom1=~/warez/"
+schedule = watch_6,10,10,"load=~/download/torrents/books/*.torrent,d.set_custom1=~/books/incoming"
+schedule = watch_7,10,10,"load=~/download/torrents/other/*.torrent,d.set_custom1=~/.x"
+
+#schedule = tied_directory,10,10,start_tied=
+#schedule = untied_directory,10,10,close_untied=
+
+# system.method.set_key = event.download.finished,<name>,<command>
+#   Index 130 String: 'event.download.closed'
+#   Index 131 String: 'event.download.erased'
+#   Index 132 String: 'event.download.finished'
+#   Index 133 String: 'event.download.hash_done'
+#   Index 134 String: 'event.download.hash_queued'
+#   Index 135 String: 'event.download.hash_removed'
+#   Index 136 String: 'event.download.inserted'
+#   Index 137 String: 'event.download.inserted_new'
+#   Index 138 String: 'event.download.inserted_session'
+#   Index 139 String: 'event.download.opened'
+#   Index 140 String: 'event.download.paused'
+#   Index 141 String: 'event.download.resumed'
+
+system.method.set_key = event.download.finished,move_complete,"delete_link=base_path,,.started ; execute=mv,-u,$d.get_base_path=,$d.get_custom1= ; d.set_directory=$d.get_custom1="
+
+#on_finished = move_complete,"execute=mv,-u,$d.get_base_path=,$d.get_custom1= ;d.set_directory=$d.get_custom1="
+
+
+
+# ;create_link=base_path,,.finished"
+
+# Create symlinks in the same directory as the download.
+system.method.set_key = event.download.opened,link1a,"create_link=base_path,,.started"
+system.method.set_key = event.download.closed,link1b,"delete_link=base_path,,.started"
+
+#on_start    = link2,"create_link=base_path,,.started"
+#on_stop     = link2,"delete_link=base_path,,.started"
+#on_finished = link2,"create_link=base_path,,.finished"
+#on_erase    = link2,"delete_link=base_path,,.finished"
+
+### PAUSED -- not working
+#system.method.set_key = event.download.paused,link5a,"delete_link=base_path,,.started ;create_link=base_path,,.paused"
+#system.method.set_key = event.download.resumed,link5b,"delete_link=base_path,,.paused ;create_link=base_path,,.started"
+
+
