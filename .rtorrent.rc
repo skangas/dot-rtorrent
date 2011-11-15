@@ -41,15 +41,16 @@ schedule = watch_4,10,10,"load=~/download/torrents/tv/*.torrent,d.set_custom1=~/
 schedule = watch_5,10,10,"load_start=~/download/torrents/warez/*.torrent,d.set_custom1=~/warez/"
 schedule = watch_6,10,10,"load_start=~/download/torrents/books/*.torrent,d.set_custom1=~/books/incoming"
 schedule = watch_7,10,10,"load_start=~/download/torrents/other/*.torrent,d.set_custom1=~/.x"
+schedule = watch_8,10,10,"load=~/download/torrents/nomove/*.torrent"
 
 # different series
-schedule = watch_8,10,10,"load_start=\"~/download/torrents/tv/American Dad/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/American Dad\\\"\""
-schedule = watch_9,10,10,"load_start=\"~/download/torrents/tv/Archer/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Archer\\\"\""
-schedule = watch_10,10,10,"load_start=\"~/download/torrents/tv/Breaking Bad/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Breaking Bad\\\"\""
-schedule = watch_11,10,10,"load_start=\"~/download/torrents/tv/Futurama/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Futurama\\\"\""
-schedule = watch_12,10,10,"load_start=\"~/download/torrents/tv/Family Guy/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Family Guy\\\"\""
-schedule = watch_13,10,10,"load_start=\"~/download/torrents/tv/South Park/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/South Park\\\"\""
-schedule = watch_14,10,10,"load_start=\"~/download/torrents/tv/Walking Dead/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/The Walking Dead\\\"\""
+schedule = watch_9,10,10,"load_start=\"~/download/torrents/tv/American Dad/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/American Dad\\\"\""
+schedule = watch_10,10,10,"load_start=\"~/download/torrents/tv/Archer/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Archer\\\"\""
+schedule = watch_11,10,10,"load_start=\"~/download/torrents/tv/Breaking Bad/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Breaking Bad\\\"\""
+schedule = watch_12,10,10,"load_start=\"~/download/torrents/tv/Futurama/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Futurama\\\"\""
+schedule = watch_13,10,10,"load_start=\"~/download/torrents/tv/Family Guy/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Family Guy\\\"\""
+schedule = watch_14,10,10,"load_start=\"~/download/torrents/tv/South Park/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/South Park\\\"\""
+schedule = watch_15,10,10,"load_start=\"~/download/torrents/tv/Walking Dead/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/The Walking Dead\\\"\""
 
 #schedule = tied_directory,10,10,start_tied=
 #schedule = untied_directory,10,10,close_untied=
