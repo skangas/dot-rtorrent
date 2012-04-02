@@ -1,13 +1,27 @@
 # ~/.rtorrent.rc
 
-port_range = 10000-65000
-port_random = yes
-
+### Paths
 directory = ~/download/bittorrent/
 session = ~/.rtorrent-session
 
-# performance
+### Port
+port_range = 51917-51917
+port_random = yes
 
+### Enable DHT
+
+# Enable DHT support for trackerless torrents or when all trackers are down.
+# May be set to "disable" (completely disable DHT), "off" (do not start DHT),
+# "auto" (start and stop DHT as needed), or "on" (start DHT immediately).
+# The default is "off". For DHT to work, a session directory must be defined.
+dht = auto
+
+# udp 
+dht_port = 6881
+
+peer_exchange = yes
+
+### Performance
 hash_read_ahead=64
 check_hash = no
 
@@ -27,7 +41,6 @@ scgi_port = 127.0.0.1:5000
 # The example value allows incoming encrypted connections, starts unencrypted
 # outgoing connections but retries with encryption if they fail, preferring
 # plaintext to RC4 encryption after the encrypted handshake
-#encryption = allow_incoming,enable_retry,prefer_plaintext
 encryption = allow_incoming,try_outgoing,enable_retry
 
 # Each watch directory adds torrents with the final destination stored
@@ -55,6 +68,12 @@ schedule = watch_15,10,10,"load_start=\"~/download/torrents/tv/Walking Dead/*.to
 #schedule = tied_directory,10,10,start_tied=
 #schedule = untied_directory,10,10,close_untied=
 
+system.method.set_key = event.download.finished,move_complete,"execute=mv,-u,$d.get_base_path=,$d.get_custom1= ; d.set_directory=$d.get_custom1="
+
+# close on low diskspace
+schedule = low_diskspace,5,60,close_low_diskspace=500M
+
+
 # system.method.set_key = event.download.finished,<name>,<command>
 #   Index 130 String: 'event.download.closed'
 #   Index 131 String: 'event.download.erased'
@@ -68,8 +87,3 @@ schedule = watch_15,10,10,"load_start=\"~/download/torrents/tv/Walking Dead/*.to
 #   Index 139 String: 'event.download.opened'
 #   Index 140 String: 'event.download.paused'
 #   Index 141 String: 'event.download.resumed'
-
-system.method.set_key = event.download.finished,move_complete,"execute=mv,-u,$d.get_base_path=,$d.get_custom1= ; d.set_directory=$d.get_custom1="
-
-# close on low diskspace
-schedule = low_diskspace,5,60,close_low_diskspace=100M
