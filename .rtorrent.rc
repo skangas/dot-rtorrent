@@ -21,6 +21,9 @@ dht_port = 6881
 
 peer_exchange = yes
 
+# Preallocate files; reduces defragmentation on filesystems.
+system.file_allocate.set = yes
+
 ### Performance
 hash_read_ahead=64
 check_hash = no
