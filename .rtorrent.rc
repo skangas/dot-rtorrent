@@ -68,6 +68,7 @@ schedule = watch_13,10,10,"load_start=\"~/download/torrents/tv/Family Guy/*.torr
 schedule = watch_14,10,10,"load_start=\"~/download/torrents/tv/South Park/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/South Park\\\"\""
 schedule = watch_15,10,10,"load_start=\"~/download/torrents/tv/Walking Dead/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/The Walking Dead\\\"\""
 schedule = watch_16,10,10,"load_start=\"~/download/torrents/tv/Dexter/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Dexter\\\"\""
+schedule = watch_17,10,10,"load_start=\"~/download/torrents/tv/Doctor Who/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Doctor Who\\\"\""
 
 #schedule = tied_directory,10,10,start_tied=
 #schedule = untied_directory,10,10,close_untied=
