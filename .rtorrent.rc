@@ -66,7 +66,7 @@ schedule = watch_11,10,10,"load_start=\"~/download/torrents/tv/Breaking Bad/*.to
 schedule = watch_12,10,10,"load_start=\"~/download/torrents/tv/Futurama/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Futurama\\\"\""
 schedule = watch_13,10,10,"load_start=\"~/download/torrents/tv/Family Guy/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Family Guy\\\"\""
 schedule = watch_14,10,10,"load_start=\"~/download/torrents/tv/South Park/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/South Park\\\"\""
-schedule = watch_15,10,10,"load_start=\"~/download/torrents/tv/Walking Dead/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/The Walking Dead\\\"\""
+schedule = watch_15,10,10,"load_start=\"~/download/torrents/tv/The Walking Dead/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/The Walking Dead\\\"\""
 schedule = watch_16,10,10,"load_start=\"~/download/torrents/tv/Dexter/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Dexter\\\"\""
 schedule = watch_17,10,10,"load_start=\"~/download/torrents/tv/Doctor Who/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Doctor Who\\\"\""
 
