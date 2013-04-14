@@ -73,7 +73,7 @@ schedule = watch_17,10,10,"load_start=\"~/download/torrents/tv/Doctor Who/*.torr
 #schedule = tied_directory,10,10,start_tied=
 #schedule = untied_directory,10,10,close_untied=
 
-system.method.set_key = event.download.finished,move_complete,"execute=mv,-u,$d.get_base_path=,$d.get_custom1= ; d.set_directory=$d.get_custom1="
+system.method.set_key = event.download.finished,move_complete,"d.set_directory=$d.get_custom1= ; execute=mv,-u,$d.get_base_path=,$d.get_custom1="
 
 # close on low diskspace
 schedule = low_diskspace,5,60,close_low_diskspace=500M
