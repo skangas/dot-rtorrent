@@ -25,7 +25,7 @@ peer_exchange = yes
 system.file_allocate.set = yes
 
 ### Performance
-hash_read_ahead=64
+#hash_read_ahead = 64
 check_hash = no
 
 max_peers = 150
