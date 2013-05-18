@@ -25,6 +25,7 @@ peer_exchange = yes
 system.file_allocate.set = yes
 
 ### Performance
+max_memory_usage = 2147483648
 #hash_read_ahead = 64
 check_hash = no
 
