@@ -5,7 +5,7 @@ directory = ~/download/bittorrent/
 session = ~/.rtorrent-session
 
 ### Port
-port_range = 51917-51917
+port_range = 42826-42826
 port_random = yes
 
 ### Enable DHT
@@ -32,6 +32,7 @@ check_hash = no
 max_peers = 150
 max_peers_seed = 100
 max_uploads = 50
+max_downloads = 10
 upload_rate = 0
 
 encoding_list = UTF-8
@@ -71,14 +72,57 @@ schedule = watch_15,10,10,"load_start=\"~/download/torrents/tv/The Walking Dead/
 schedule = watch_16,10,10,"load_start=\"~/download/torrents/tv/Dexter/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Dexter\\\"\""
 schedule = watch_17,10,10,"load_start=\"~/download/torrents/tv/Doctor Who/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Doctor Who\\\"\""
 
+schedule = watch_19,10,10,"load=~/download/torrents/pth/*.torrent,d.set_directory=~/music/Hip-Hop"
+
+#schedule = watch_666,10,10,"load=\"/home/skangas/wip/wcd2pth-sort/out/download/*.torrent\",d.set_directory=\"~/music/incoming\",d.check_hash="
+
+#schedule = watch_801,10,10,"load=\"~/download/torrents/pth/upload/*.torrent\",d.directory.set=\"~/upload/pth\",d.check_hash=,d.start="
+#schedule = watch_802,10,10,"load=\"~/download/torrents/pth/better/*.torrent\",d.directory.set=\"~/upload/pth/better\",d.start="
+
+#schedule = watch_821,10,10,"load=\"~/download/torrents/apl/upload/*.torrent\",d.directory.set=\"~/upload/pth\",d.check_hash=,d.start="
+
+schedule = watch_843,10,10,"load_start=\"~/download/torrents/ptp/seed/*.torrent\",\"d.set_custom1=\\\"~/upload/ptp/seed\\\"\""
+
+schedule = watch_tmpptp,10,10,"load=\"~/foobar/*.torrent\",d.directory.set=\"~/saved/film\",d.check_hash="
+
+#schedule = watch_901,10,10,"load_start=\"~/download/torrents/seed/pth/*.torrent\","
+#schedule = watch_902,10,10,"load_start=\"~/download/torrents/seed/apollo/*.torrent\","
+
 #schedule = tied_directory,10,10,start_tied=
 #schedule = untied_directory,10,10,close_untied=
 
-system.method.set_key = event.download.finished,move_complete,"d.set_directory=$d.get_custom1= ; execute=mv,-u,$d.get_base_path=,$d.get_custom1="
+# Taken from Archlinux Wiki @ 2016-12-27
+
+# insert a method with the alias 'checkdirs1'
+# 1) returns true if the current path of the torrent data is not equal to the value of custom1
+# 2) otherwise, returns false
+system.method.insert=checkdirs1,simple,"not=\"$equal={d.get_custom1=,d.get_base_path=}\""
+
+# insert a method with the alias 'movecheck1'
+# 1) returns true if all 3 commands return true ('result of checkdirs1' && 'torrent is 100% done', 'custom1 variable is set')
+# 2) otherwise, returns false
+system.method.insert=movecheck1,simple,"and={checkdirs1=,d.get_complete=,d.get_custom1=}"
+
+# insert a method with the alias 'movedir1'
+# (a series of commands, separated by ';') 
+# 1) "set path of torrent to equal the value of custom1";
+# 2) "mv -u <current data path> <custom1 path>";
+# 3) "clear custom1", "stop the torrent","resume the torrent"
+# 4) stop the torrent
+# 5) start the torrent (to get the torrent to update the 'base path')
+system.method.insert=movedir1,simple,"d.set_directory=$d.get_custom1=;execute=mv,-u,$d.get_base_path=,$d.get_custom1=;d.set_custom1=;d.stop=;d.start="
+
+# set a key with the name 'move_hashed1' that is triggered by the hash_done event.
+# 1) When hashing of a torrent completes, this custom key will be triggered.
+# 2) when triggered, execute the 'movecheck1' method and check the return value.
+# 3) if the 'movecheck' method returns 'true', execute the 'movedir1' method we inserted above.
+# NOTE-0: *Only* data that has had their hash checked manually with ^R [^R = Control r].
+# Or on a rtorrent restart[which initiates a hash check]. Will the data move; ~/torrents/incomplete => ~/torrents/complete for example.
+# NOTE-1: 'branch' is an 'if' conditional statement: if(movecheck1){movedir1}
+system.method.set_key=event.download.finished,move_hashed1,"branch={$movecheck1=,movedir1=}"
 
 # close on low diskspace
 schedule = low_diskspace,5,60,close_low_diskspace=500M
-
 
 # system.method.set_key = event.download.finished,<name>,<command>
 #   Index 130 String: 'event.download.closed'
