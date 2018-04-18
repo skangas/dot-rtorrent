@@ -61,6 +61,10 @@ schedule = watch_6,10,10,"load_start=~/download/torrents/books/*.torrent,d.set_c
 schedule = watch_7,10,10,"load_start=~/download/torrents/other/*.torrent,d.set_custom1=~/upload/.incoming"
 schedule = watch_8,10,10,"load=~/download/torrents/nomove/*.torrent"
 
+######## SEED FROM EXTERNAL USB #############
+schedule = seed_1,10,10,"load=\"~/download/torrents/external/btn/*.torrent\",d.set_directory=/mnt/usb/seed/btn,d.start="
+schedule = seed_99,10,10,"load=\"~/download/torrents/external/other/*.torrent\",d.set_directory=/mnt/usb/seed/other,d.start="
+
 # different series
 schedule = watch_9,10,10,"load_start=\"~/download/torrents/tv/American Dad/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/American Dad\\\"\""
 schedule = watch_10,10,10,"load_start=\"~/download/torrents/tv/Archer/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Archer\\\"\""
