@@ -63,6 +63,7 @@ schedule = watch_8,10,10,"load=~/download/torrents/nomove/*.torrent"
 
 ######## SEED FROM EXTERNAL USB #############
 schedule = seed_1,10,10,"load=\"~/download/torrents/external/btn/*.torrent\",d.set_directory=/mnt/usb/seed/btn,d.start="
+schedule = seed_2,10,10,"load=\"~/download/torrents/external/film/*.torrent\",d.set_directory=/mnt/usb/seed/film,d.start="
 schedule = seed_99,10,10,"load=\"~/download/torrents/external/other/*.torrent\",d.set_directory=/mnt/usb/seed/other,d.start="
 
 # different series
