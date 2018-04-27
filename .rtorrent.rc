@@ -46,7 +46,8 @@ xmlrpc_dialect=i8
 # The example value allows incoming encrypted connections, starts unencrypted
 # outgoing connections but retries with encryption if they fail, preferring
 # plaintext to RC4 encryption after the encrypted handshake
-encryption = allow_incoming,try_outgoing,enable_retry
+#encryption = allow_incoming,try_outgoing,enable_retry
+encryption = allow_incoming,try_outgoing,enable_retry,prefer_plaintext
 
 # Each watch directory adds torrents with the final destination stored
 # in the "custom1" string of the download. You can check this string with
@@ -64,7 +65,9 @@ schedule = watch_8,10,10,"load=~/download/torrents/nomove/*.torrent"
 ######## SEED FROM EXTERNAL USB #############
 schedule = seed_1,10,10,"load=\"~/download/torrents/external/btn/*.torrent\",d.set_directory=/mnt/usb/seed/btn,d.start="
 schedule = seed_2,10,10,"load=\"~/download/torrents/external/film/*.torrent\",d.set_directory=/mnt/usb/seed/film,d.start="
+schedule = seed_3,10,10,"load=\"~/download/torrents/external/waffles/*.torrent\",d.set_directory=/mnt/usb/seed/waffles,d.start="
 schedule = seed_99,10,10,"load=\"~/download/torrents/external/other/*.torrent\",d.set_directory=/mnt/usb/seed/other,d.start="
+
 
 # different series
 schedule = watch_9,10,10,"load_start=\"~/download/torrents/tv/American Dad/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/American Dad\\\"\""
