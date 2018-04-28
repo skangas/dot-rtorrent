@@ -29,11 +29,15 @@ max_memory_usage = 2147483648
 #hash_read_ahead = 64
 check_hash = no
 
-max_peers = 150
-max_peers_seed = 100
-max_uploads = 50
-max_downloads = 10
-upload_rate = 0
+# Maximum and minimum number of peers to connect to per torrent.
+#
+#throttle.min_peers.normal.set = 40
+#throttle.max_peers.normal.set = 100
+
+# Same as above but for seeding completed torrents (-1 = same as downloading)
+#
+#throttle.min_peers.seed.set = 10
+#throttle.max_peers.seed.set = 50
 
 encoding_list = UTF-8
 #scgi_local = ~/.rtorrent-session/rpc.socket
@@ -145,3 +149,8 @@ schedule = low_diskspace,5,60,close_low_diskspace=500M
 #   Index 139 String: 'event.download.opened'
 #   Index 140 String: 'event.download.paused'
 #   Index 141 String: 'event.download.resumed'
+
+
+## Show currently downloading/uploading in 'active' view
+view_sort_current = active,greater=d.get_up_rate=
+schedule = filter_active,12,20,"view_filter = active,\"or={d.get_up_rate=,d.get_down_rate=}\" ;view_sort=active"
