@@ -64,6 +64,7 @@ schedule = watch_4,10,10,"load=~/download/torrents/tv/*.torrent,d.set_custom1=~/
 schedule = watch_5,10,10,"load_start=~/download/torrents/warez/*.torrent,d.set_custom1=~/warez/"
 schedule = watch_6,10,10,"load_start=~/download/torrents/books/*.torrent,d.set_custom1=~/books/incoming"
 schedule = watch_7,10,10,"load_start=~/download/torrents/magazines/*.torrent,d.set_custom1=~/books/magazines"
+schedule = watch_8,10,10,"load_start=~/download/torrents/comics/*.torrent,d.set_custom1=~/books/comics"
 schedule = watch_88,10,10,"load=~/download/torrents/nomove/*.torrent"
 schedule = watch_99,10,10,"load_start=~/download/torrents/other/*.torrent,d.set_custom1=~/upload/.incoming"
 
