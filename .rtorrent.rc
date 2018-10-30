@@ -8,6 +8,10 @@ session = ~/.rtorrent-session
 port_range = 42826-42826
 port_random = yes
 
+# network.http.max_open.set = 50
+# network.max_open_files.set = 600
+# network.max_open_sockets.set = 300
+
 ### Enable DHT
 
 # Enable DHT support for trackerless torrents or when all trackers are down.
@@ -28,6 +32,12 @@ system.file_allocate.set = yes
 max_memory_usage = 2147483648
 #hash_read_ahead = 64
 check_hash = no
+
+# CURL option to lower DNS timeout. Default: `60`.
+network.http.dns_cache_timeout.set = 25
+
+# Max packet size using xmlrpc. Default: `524288` (xmlrpc_size_limit)
+network.xmlrpc.size_limit.set = 2M
 
 # Maximum and minimum number of peers to connect to per torrent.
 #
@@ -136,7 +146,7 @@ system.method.insert=movedir1,simple,"d.set_directory=$d.get_custom1=;execute=mv
 system.method.set_key=event.download.finished,move_hashed1,"branch={$movecheck1=,movedir1=}"
 
 # close on low diskspace
-schedule = low_diskspace,5,60,close_low_diskspace=500M
+schedule = low_diskspace,15,60,close_low_diskspace=1000M
 
 # system.method.set_key = event.download.finished,<name>,<command>
 #   Index 130 String: 'event.download.closed'
@@ -156,3 +166,9 @@ schedule = low_diskspace,5,60,close_low_diskspace=500M
 ## Show currently downloading/uploading in 'active' view
 view_sort_current = active,greater=d.get_up_rate=
 schedule = filter_active,12,20,"view_filter = active,\"or={d.get_up_rate=,d.get_down_rate=}\" ;view_sort=active"
+
+# Fixme
+log.execute = (cat, (cfg.logs), "execute.log")
+log.xmlrpc = (cat, (cfg.logs), "xmlrpc.log")
+execute.nothrow = bash, -c, (cat, "echo >",\
+    (session.path), "rtorrent.pid", " ", (system.pid))
