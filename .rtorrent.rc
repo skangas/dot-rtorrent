@@ -168,7 +168,7 @@ view_sort_current = active,greater=d.get_up_rate=
 schedule = filter_active,12,20,"view_filter = active,\"or={d.get_up_rate=,d.get_down_rate=}\" ;view_sort=active"
 
 # Fixme
-log.execute = (cat, (cfg.logs), "execute.log")
-log.xmlrpc = (cat, (cfg.logs), "xmlrpc.log")
-execute.nothrow = bash, -c, (cat, "echo >",\
-    (session.path), "rtorrent.pid", " ", (system.pid))
+# log.execute = (cat, (cfg.logs), "execute.log")
+# log.xmlrpc = (cat, (cfg.logs), "xmlrpc.log")
+# execute.nothrow = bash, -c, (cat, "echo >",\
+#     (session.path), "rtorrent.pid", " ", (system.pid))
