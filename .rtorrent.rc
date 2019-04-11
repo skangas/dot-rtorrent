@@ -49,19 +49,17 @@ network.xmlrpc.size_limit.set = 2M
 #throttle.min_peers.seed.set = 10
 #throttle.max_peers.seed.set = 50
 
-encoding_list = UTF-8
+encoding.add = utf8
 #scgi_local = ~/.rtorrent-session/rpc.socket
 scgi_port = 127.0.0.1:5000
 xmlrpc_dialect=i8
 
-# Encryption options, set to none (default) or any combination of the following:
-# allow_incoming, try_outgoing, require, require_RC4, enable_retry, prefer_plaintext
-#
-# The example value allows incoming encrypted connections, starts unencrypted
-# outgoing connections but retries with encryption if they fail, preferring
-# plaintext to RC4 encryption after the encrypted handshake
-#encryption = allow_incoming,try_outgoing,enable_retry
-encryption = allow_incoming,try_outgoing,enable_retry,prefer_plaintext
+protocol.encryption.set = allow_incoming,try_outgoing,enable_retry
+
+# Memory resource usage (increase if you have a large number of items loaded,
+# and/or the available resources to spend)
+pieces.memory.max.set = 1800M
+network.xmlrpc.size_limit.set = 16M
 
 # Each watch directory adds torrents with the final destination stored
 # in the "custom1" string of the download. You can check this string with
