@@ -23,10 +23,10 @@ dht = auto
 # UDP port to use for DHT. 
 dht_port = 6881
 
-peer_exchange = yes
+#peer_exchange = yes
 
 # Preallocate files; reduces defragmentation on filesystems.
-system.file_allocate.set = yes
+#system.file_allocate.set = yes
 
 ### Performance
 max_memory_usage = 2147483648
@@ -52,7 +52,6 @@ network.xmlrpc.size_limit.set = 2M
 encoding.add = utf8
 #scgi_local = ~/.rtorrent-session/rpc.socket
 scgi_port = 127.0.0.1:5000
-xmlrpc_dialect=i8
 
 protocol.encryption.set = allow_incoming,try_outgoing,enable_retry
 
