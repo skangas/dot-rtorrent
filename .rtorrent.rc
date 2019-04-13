@@ -23,10 +23,10 @@ dht = auto
 # UDP port to use for DHT. 
 dht_port = 6881
 
-#peer_exchange = yes
+protocol.pex.set = yes
 
 # Preallocate files; reduces defragmentation on filesystems.
-#system.file_allocate.set = yes
+system.file.allocate.set = yes
 
 ### Performance
 max_memory_usage = 2147483648
@@ -62,52 +62,52 @@ network.xmlrpc.size_limit.set = 16M
 
 # Each watch directory adds torrents with the final destination stored
 # in the "custom1" string of the download. You can check this string with
-# ctrl-X then "print=$d.get_custom1=" in the client.
+# ctrl-X then "print=$d.custom1=" in the client.
 
-schedule = watch_1,10,10,"load_start=~/download/torrents/*.torrent,d.set_custom1=~/download/"
-schedule = watch_2,10,10,"load=~/download/torrents/film/*.torrent,d.set_custom1=~/Film/"
-schedule = watch_3,10,10,"load_start=~/download/torrents/music/*.torrent,d.set_custom1=~/music/incoming/"
-schedule = watch_4,10,10,"load=~/download/torrents/tv/*.torrent,d.set_custom1=~/Film/TV/"
-schedule = watch_5,10,10,"load_start=~/download/torrents/warez/*.torrent,d.set_custom1=~/warez/"
-schedule = watch_6,10,10,"load_start=~/download/torrents/books/*.torrent,d.set_custom1=~/books/incoming"
-schedule = watch_7,10,10,"load_start=~/download/torrents/magazines/*.torrent,d.set_custom1=~/books/magazines"
-schedule = watch_8,10,10,"load_start=~/download/torrents/comics/*.torrent,d.set_custom1=~/books/comics"
-schedule = watch_88,10,10,"load=~/download/torrents/nomove/*.torrent"
-schedule = watch_99,10,10,"load_start=~/download/torrents/other/*.torrent,d.set_custom1=~/upload/.incoming"
+schedule = watch_1,10,10,"load.start=~/download/torrents/*.torrent,d.custom1.set=~/download/"
+schedule = watch_2,10,10,"load.normal=~/download/torrents/film/*.torrent,d.custom1.set=~/Film/"
+schedule = watch_3,10,10,"load.start=~/download/torrents/music/*.torrent,d.custom1.set=~/music/incoming/"
+schedule = watch_4,10,10,"load.normal=~/download/torrents/tv/*.torrent,d.custom1.set=~/Film/TV/"
+schedule = watch_5,10,10,"load.start=~/download/torrents/warez/*.torrent,d.custom1.set=~/warez/"
+schedule = watch_6,10,10,"load.start=~/download/torrents/books/*.torrent,d.custom1.set=~/books/incoming"
+schedule = watch_7,10,10,"load.start=~/download/torrents/magazines/*.torrent,d.custom1.set=~/books/magazines"
+schedule = watch_8,10,10,"load.start=~/download/torrents/comics/*.torrent,d.custom1.set=~/books/comics"
+schedule = watch_88,10,10,"load.normal=~/download/torrents/nomove/*.torrent"
+schedule = watch_99,10,10,"load.start=~/download/torrents/other/*.torrent,d.custom1.set=~/upload/.incoming"
 
 ######## SEED FROM EXTERNAL USB #############
-schedule = seed_1,10,10,"load=\"~/download/torrents/external/btn/*.torrent\",d.set_directory=/mnt/usb/seed/btn,d.start="
-schedule = seed_2,10,10,"load=\"~/download/torrents/external/film/*.torrent\",d.set_directory=/mnt/usb/seed/film,d.start="
-schedule = seed_3,10,10,"load=\"~/download/torrents/external/waffles/*.torrent\",d.set_directory=/mnt/usb/seed/waffles,d.start="
-schedule = seed_99,10,10,"load=\"~/download/torrents/external/other/*.torrent\",d.set_directory=/mnt/usb/seed/other,d.start="
+schedule = seed_1,10,10,"load.normal=\"~/download/torrents/external/btn/*.torrent\",d.set_directory=/mnt/usb/seed/btn,d.start="
+schedule = seed_2,10,10,"load.normal=\"~/download/torrents/external/film/*.torrent\",d.set_directory=/mnt/usb/seed/film,d.start="
+schedule = seed_3,10,10,"load.normal=\"~/download/torrents/external/waffles/*.torrent\",d.set_directory=/mnt/usb/seed/waffles,d.start="
+schedule = seed_99,10,10,"load.normal=\"~/download/torrents/external/other/*.torrent\",d.set_directory=/mnt/usb/seed/other,d.start="
 
 
 # different series
-schedule = watch_9,10,10,"load_start=\"~/download/torrents/tv/American Dad/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/American Dad\\\"\""
-schedule = watch_10,10,10,"load_start=\"~/download/torrents/tv/Archer/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Archer\\\"\""
-schedule = watch_11,10,10,"load_start=\"~/download/torrents/tv/Breaking Bad/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Breaking Bad\\\"\""
-schedule = watch_12,10,10,"load_start=\"~/download/torrents/tv/Futurama/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Futurama\\\"\""
-schedule = watch_13,10,10,"load_start=\"~/download/torrents/tv/Family Guy/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Family Guy\\\"\""
-schedule = watch_14,10,10,"load_start=\"~/download/torrents/tv/South Park/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/South Park\\\"\""
-schedule = watch_15,10,10,"load_start=\"~/download/torrents/tv/The Walking Dead/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/The Walking Dead\\\"\""
-schedule = watch_16,10,10,"load_start=\"~/download/torrents/tv/Dexter/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Dexter\\\"\""
-schedule = watch_17,10,10,"load_start=\"~/download/torrents/tv/Doctor Who/*.torrent\",\"d.set_custom1=\\\"/mnt/media/tv/Doctor Who\\\"\""
+schedule = watch_9,10,10,"load.start=\"~/download/torrents/tv/American Dad/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/American Dad\\\"\""
+schedule = watch_10,10,10,"load.start=\"~/download/torrents/tv/Archer/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/Archer\\\"\""
+schedule = watch_11,10,10,"load.start=\"~/download/torrents/tv/Breaking Bad/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/Breaking Bad\\\"\""
+schedule = watch_12,10,10,"load.start=\"~/download/torrents/tv/Futurama/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/Futurama\\\"\""
+schedule = watch_13,10,10,"load.start=\"~/download/torrents/tv/Family Guy/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/Family Guy\\\"\""
+schedule = watch_14,10,10,"load.start=\"~/download/torrents/tv/South Park/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/South Park\\\"\""
+schedule = watch_15,10,10,"load.start=\"~/download/torrents/tv/The Walking Dead/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/The Walking Dead\\\"\""
+schedule = watch_16,10,10,"load.start=\"~/download/torrents/tv/Dexter/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/Dexter\\\"\""
+schedule = watch_17,10,10,"load.start=\"~/download/torrents/tv/Doctor Who/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/Doctor Who\\\"\""
 
-schedule = watch_19,10,10,"load=~/download/torrents/pth/*.torrent,d.set_directory=~/music/Hip-Hop"
+schedule = watch_19,10,10,"load.normal=~/download/torrents/pth/*.torrent,d.set_directory=~/music/Hip-Hop"
 
-#schedule = watch_666,10,10,"load=\"/home/skangas/wip/wcd2pth-sort/out/download/*.torrent\",d.set_directory=\"~/music/incoming\",d.check_hash="
+#schedule = watch_666,10,10,"load.normal=\"/home/skangas/wip/wcd2pth-sort/out/download/*.torrent\",d.set_directory=\"~/music/incoming\",d.check_hash="
 
-#schedule = watch_801,10,10,"load=\"~/download/torrents/pth/upload/*.torrent\",d.directory.set=\"~/upload/pth\",d.check_hash=,d.start="
-#schedule = watch_802,10,10,"load=\"~/download/torrents/pth/better/*.torrent\",d.directory.set=\"~/upload/pth/better\",d.start="
+#schedule = watch_801,10,10,"load.normal=\"~/download/torrents/pth/upload/*.torrent\",d.directory.set=\"~/upload/pth\",d.check_hash=,d.start="
+#schedule = watch_802,10,10,"load.normal=\"~/download/torrents/pth/better/*.torrent\",d.directory.set=\"~/upload/pth/better\",d.start="
 
-#schedule = watch_821,10,10,"load=\"~/download/torrents/apl/upload/*.torrent\",d.directory.set=\"~/upload/pth\",d.check_hash=,d.start="
+#schedule = watch_821,10,10,"load.normal=\"~/download/torrents/apl/upload/*.torrent\",d.directory.set=\"~/upload/pth\",d.check_hash=,d.start="
 
-schedule = watch_843,10,10,"load_start=\"~/download/torrents/ptp/seed/*.torrent\",\"d.set_custom1=\\\"~/upload/ptp/seed\\\"\""
+schedule = watch_843,10,10,"load.start=\"~/download/torrents/ptp/seed/*.torrent\",\"d.custom1.set=\\\"~/upload/ptp/seed\\\"\""
 
-schedule = watch_tmpptp,10,10,"load=\"~/foobar/*.torrent\",d.directory.set=\"~/saved/film\",d.check_hash="
+schedule = watch_tmpptp,10,10,"load.normal=\"~/foobar/*.torrent\",d.directory.set=\"~/saved/film\",d.check_hash="
 
-#schedule = watch_901,10,10,"load_start=\"~/download/torrents/seed/pth/*.torrent\","
-#schedule = watch_902,10,10,"load_start=\"~/download/torrents/seed/apollo/*.torrent\","
+#schedule = watch_901,10,10,"load.start=\"~/download/torrents/seed/pth/*.torrent\","
+#schedule = watch_902,10,10,"load.start=\"~/download/torrents/seed/apollo/*.torrent\","
 
 #schedule = tied_directory,10,10,start_tied=
 #schedule = untied_directory,10,10,close_untied=
@@ -117,12 +117,12 @@ schedule = watch_tmpptp,10,10,"load=\"~/foobar/*.torrent\",d.directory.set=\"~/s
 # insert a method with the alias 'checkdirs1'
 # 1) returns true if the current path of the torrent data is not equal to the value of custom1
 # 2) otherwise, returns false
-system.method.insert=checkdirs1,simple,"not=\"$equal={d.get_custom1=,d.get_base_path=}\""
+method.insert=checkdirs1,simple,"not=\"$equal={d.custom1=,d.base_path=}\""
 
 # insert a method with the alias 'movecheck1'
 # 1) returns true if all 3 commands return true ('result of checkdirs1' && 'torrent is 100% done', 'custom1 variable is set')
 # 2) otherwise, returns false
-system.method.insert=movecheck1,simple,"and={checkdirs1=,d.get_complete=,d.get_custom1=}"
+method.insert=movecheck1,simple,"and={checkdirs1=,d.complete=,d.custom1=}"
 
 # insert a method with the alias 'movedir1'
 # (a series of commands, separated by ';') 
@@ -131,7 +131,7 @@ system.method.insert=movecheck1,simple,"and={checkdirs1=,d.get_complete=,d.get_c
 # 3) "clear custom1", "stop the torrent","resume the torrent"
 # 4) stop the torrent
 # 5) start the torrent (to get the torrent to update the 'base path')
-system.method.insert=movedir1,simple,"d.set_directory=$d.get_custom1=;execute=mv,-u,$d.get_base_path=,$d.get_custom1=;d.set_custom1=;d.stop=;d.start="
+method.insert=movedir1,simple,"d.set_directory=$d.custom1=;execute=mv,-u,$d.base_path=,$d.custom1=;d.custom1.set=;d.stop=;d.start="
 
 # set a key with the name 'move_hashed1' that is triggered by the hash_done event.
 # 1) When hashing of a torrent completes, this custom key will be triggered.
@@ -140,12 +140,12 @@ system.method.insert=movedir1,simple,"d.set_directory=$d.get_custom1=;execute=mv
 # NOTE-0: *Only* data that has had their hash checked manually with ^R [^R = Control r].
 # Or on a rtorrent restart[which initiates a hash check]. Will the data move; ~/torrents/incomplete => ~/torrents/complete for example.
 # NOTE-1: 'branch' is an 'if' conditional statement: if(movecheck1){movedir1}
-system.method.set_key=event.download.finished,move_hashed1,"branch={$movecheck1=,movedir1=}"
+method.set_key=event.download.finished,move_hashed1,"branch={$movecheck1=,movedir1=}"
 
 # close on low diskspace
 schedule = low_diskspace,15,60,close_low_diskspace=1000M
 
-# system.method.set_key = event.download.finished,<name>,<command>
+# method.set_key = event.download.finished,<name>,<command>
 #   Index 130 String: 'event.download.closed'
 #   Index 131 String: 'event.download.erased'
 #   Index 132 String: 'event.download.finished'
@@ -161,8 +161,8 @@ schedule = low_diskspace,15,60,close_low_diskspace=1000M
 
 
 ## Show currently downloading/uploading in 'active' view
-view_sort_current = active,greater=d.get_up_rate=
-schedule = filter_active,12,20,"view_filter = active,\"or={d.get_up_rate=,d.get_down_rate=}\" ;view_sort=active"
+#view.sort_current = active,greater=d.up.rate=
+#schedule = filter_active,12,20,"view.filter = active,\"or={d.up.rate=,d.down.rate=}\" ;view.sort=active"
 
 # Fixme
 # log.execute = (cat, (cfg.logs), "execute.log")
