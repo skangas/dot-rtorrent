@@ -161,8 +161,8 @@ schedule = low_diskspace,15,60,close_low_diskspace=1000M
 
 
 ## Show currently downloading/uploading in 'active' view
-#view.sort_current = active,greater=d.up.rate=
-#schedule = filter_active,12,20,"view.filter = active,\"or={d.up.rate=,d.down.rate=}\" ;view.sort=active"
+view.sort_current = active,greater=d.up.rate=
+schedule = filter_active,12,20,"view.filter = active,\"or={d.up.rate=,d.down.rate=}\" ;view.sort=active"
 
 # Fixme
 # log.execute = (cat, (cfg.logs), "execute.log")
