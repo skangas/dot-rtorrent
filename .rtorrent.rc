@@ -76,10 +76,10 @@ schedule = watch_88,10,10,"load.normal=~/download/torrents/nomove/*.torrent"
 schedule = watch_99,10,10,"load.start=~/download/torrents/other/*.torrent,d.custom1.set=~/upload/.incoming"
 
 ######## SEED FROM EXTERNAL USB #############
-schedule = seed_1,10,10,"load.normal=\"~/download/torrents/external/btn/*.torrent\",d.set_directory=/mnt/usb/seed/btn,d.start="
-schedule = seed_2,10,10,"load.normal=\"~/download/torrents/external/film/*.torrent\",d.set_directory=/mnt/usb/seed/film,d.start="
-schedule = seed_3,10,10,"load.normal=\"~/download/torrents/external/waffles/*.torrent\",d.set_directory=/mnt/usb/seed/waffles,d.start="
-schedule = seed_99,10,10,"load.normal=\"~/download/torrents/external/other/*.torrent\",d.set_directory=/mnt/usb/seed/other,d.start="
+schedule = seed_1,10,10,"load.normal=\"~/download/torrents/external/btn/*.torrent\",d.directory.set=/mnt/usb/seed/btn,d.start="
+schedule = seed_2,10,10,"load.normal=\"~/download/torrents/external/film/*.torrent\",d.directory.set=/mnt/usb/seed/film,d.start="
+schedule = seed_3,10,10,"load.normal=\"~/download/torrents/external/waffles/*.torrent\",d.directory.set=/mnt/usb/seed/waffles,d.start="
+schedule = seed_99,10,10,"load.normal=\"~/download/torrents/external/other/*.torrent\",d.directory.set=/mnt/usb/seed/other,d.start="
 
 
 # different series
@@ -93,9 +93,9 @@ schedule = watch_15,10,10,"load.start=\"~/download/torrents/tv/The Walking Dead/
 schedule = watch_16,10,10,"load.start=\"~/download/torrents/tv/Dexter/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/Dexter\\\"\""
 schedule = watch_17,10,10,"load.start=\"~/download/torrents/tv/Doctor Who/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/Doctor Who\\\"\""
 
-schedule = watch_19,10,10,"load.normal=~/download/torrents/pth/*.torrent,d.set_directory=~/music/Hip-Hop"
+schedule = watch_19,10,10,"load.normal=~/download/torrents/pth/*.torrent,d.directory.set=~/music/Hip-Hop"
 
-#schedule = watch_666,10,10,"load.normal=\"/home/skangas/wip/wcd2pth-sort/out/download/*.torrent\",d.set_directory=\"~/music/incoming\",d.check_hash="
+#schedule = watch_666,10,10,"load.normal=\"/home/skangas/wip/wcd2pth-sort/out/download/*.torrent\",d.directory.set=\"~/music/incoming\",d.check_hash="
 
 #schedule = watch_801,10,10,"load.normal=\"~/download/torrents/pth/upload/*.torrent\",d.directory.set=\"~/upload/pth\",d.check_hash=,d.start="
 #schedule = watch_802,10,10,"load.normal=\"~/download/torrents/pth/better/*.torrent\",d.directory.set=\"~/upload/pth/better\",d.start="
@@ -131,7 +131,7 @@ method.insert=movecheck1,simple,"and={checkdirs1=,d.complete=,d.custom1=}"
 # 3) "clear custom1", "stop the torrent","resume the torrent"
 # 4) stop the torrent
 # 5) start the torrent (to get the torrent to update the 'base path')
-method.insert=movedir1,simple,"d.set_directory=$d.custom1=;execute=mv,-u,$d.base_path=,$d.custom1=;d.custom1.set=;d.stop=;d.start="
+method.insert=movedir1,simple,"d.directory.set=$d.custom1=;execute=mv,-u,$d.base_path=,$d.custom1=;d.custom1.set=;d.stop=;d.start="
 
 # set a key with the name 'move_hashed1' that is triggered by the hash_done event.
 # 1) When hashing of a torrent completes, this custom key will be triggered.
