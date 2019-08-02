@@ -1,5 +1,8 @@
 # ~/.rtorrent.rc
 
+# Workaround bug in rtorrent 0.9.7
+network.local_address.set=192.168.1.2
+
 ### Paths
 directory = ~/download/bittorrent/
 session = ~/.rtorrent-session
