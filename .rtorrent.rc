@@ -85,6 +85,9 @@ schedule = seed_2,10,10,"load.normal=\"~/download/torrents/external/film/*.torre
 schedule = seed_3,10,10,"load.normal=\"~/download/torrents/external/waffles/*.torrent\",d.directory.set=/mnt/usb/seed/waffles,d.start="
 schedule = seed_99,10,10,"load.normal=\"~/download/torrents/external/other/*.torrent\",d.directory.set=/mnt/usb/seed/other,d.start="
 
+############ SAGAN ##################
+schedule = seed_1,10,10,"load.normal=\"~/download/torrents/external/sagan/*.torrent\",d.directory.set=/mnt/stick/download,d.start="
+
 
 # different series
 schedule = watch_9,10,10,"load.start=\"~/download/torrents/tv/American Dad/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/American Dad\\\"\""
@@ -98,6 +101,7 @@ schedule = watch_16,10,10,"load.start=\"~/download/torrents/tv/Dexter/*.torrent\
 schedule = watch_17,10,10,"load.start=\"~/download/torrents/tv/Doctor Who/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/Doctor Who\\\"\""
 
 schedule = watch_19,10,10,"load.normal=~/download/torrents/pth/*.torrent,d.directory.set=~/music/Hip-Hop"
+
 
 #schedule = watch_666,10,10,"load.normal=\"/home/skangas/wip/wcd2pth-sort/out/download/*.torrent\",d.directory.set=\"~/music/incoming\",d.check_hash="
 
