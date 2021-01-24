@@ -61,8 +61,8 @@ protocol.encryption.set = allow_incoming,try_outgoing,enable_retry
 
 # Memory resource usage (increase if you have a large number of items loaded,
 # and/or the available resources to spend)
-pieces.memory.max.set = 1800M
-network.xmlrpc.size_limit.set = 16M
+#pieces.memory.max.set = 1800M
+network.xmlrpc.size_limit.set = 32M
 
 # Each watch directory adds torrents with the final destination stored
 # in the "custom1" string of the download. You can check this string with
@@ -84,10 +84,6 @@ schedule = seed_1,10,10,"load.normal=\"~/download/torrents/external/btn/*.torren
 schedule = seed_2,10,10,"load.normal=\"~/download/torrents/external/film/*.torrent\",d.directory.set=/mnt/usb/seed/film,d.start="
 schedule = seed_3,10,10,"load.normal=\"~/download/torrents/external/waffles/*.torrent\",d.directory.set=/mnt/usb/seed/waffles,d.start="
 schedule = seed_99,10,10,"load.normal=\"~/download/torrents/external/other/*.torrent\",d.directory.set=/mnt/usb/seed/other,d.start="
-
-############ SAGAN ##################
-schedule = seed_1,10,10,"load.normal=\"~/download/torrents/external/sagan/*.torrent\",d.directory.set=/mnt/stick/download,d.start="
-
 
 # different series
 schedule = watch_9,10,10,"load.start=\"~/download/torrents/tv/American Dad/*.torrent\",\"d.custom1.set=\\\"/mnt/media/tv/American Dad\\\"\""
